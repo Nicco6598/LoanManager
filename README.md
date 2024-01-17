@@ -75,7 +75,7 @@ Ecco alcuni esempi di chiamate di funzione possibili con il contratto LoanManage
   ```solidity
   Copy code
   // Ottieni informazioni su un prestito specifico specificando l'ID del prestito
-  getLoanInfo(0);
+  mapping(uint256 => Loan) public loans;
   
 # Licenza
 Questo contratto è distribuito con una licenza MIT. Consulta il file LICENSE per ulteriori dettagli.
