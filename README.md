@@ -84,12 +84,12 @@ Questo contratto è distribuito con una licenza MIT. Consulta il file LICENSE pe
 Marco Niccolini - (https://github.com/Nicco6598)
 
 ## Clonare 
-Fai il fork del repository.
-Crea un branch con una descrizione chiara della tua modifica: git checkout -b feature/nome-della-funzione.
-Fai commit delle tue modifiche: git commit -m 'Aggiunta la nuova funzione'.
-Pusha il tuo branch: git push origin feature/nome-della-funzione.
-Apri una pull request con una descrizione dettagliata delle tue modifiche.
-Domande e Supporto
-In caso di domande o bisogno di supporto, puoi aprire una issue su GitHub o contattare l'autore principale del progetto.
+- Fai il fork del repository.
+- Crea un branch con una descrizione chiara della tua modifica: git checkout -b feature/nome-della-funzione.
+- Fai commit delle tue modifiche: git commit -m 'Aggiunta la nuova funzione'.
+- Pusha il tuo branch: git push origin feature/nome-della-funzione.
+- Apri una pull request con una descrizione dettagliata delle tue modifiche.
+- Domande e Supporto
+- In caso di domande o bisogno di supporto, puoi aprire una issue su GitHub o contattare l'autore principale del progetto.
 
 Grazie per aver utilizzato LoanManager!
