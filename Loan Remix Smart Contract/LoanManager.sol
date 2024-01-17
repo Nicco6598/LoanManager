@@ -90,15 +90,16 @@ contract LoanManager {
     emit LoanPaid(loanId, totalAmount);
     }
 
-    // Funzione per annullare un prestito
-    function cancelLoan(uint256 loanId) external onlyOwner {
+    // Funzione per annullare un prestito (solo per l'owner del prestito)
+    function cancelLoan(uint256 loanId) external {
         Loan storage loan = loans[loanId];
+        require(msg.sender == loan.borrower, "Only the owner of the loan can cancel it");
         require(!loan.isPaid, "Cannot cancel a paid loan");
 
         loan.isPaid = true;
 
         // Trasferimento dei fondi al proprietario
-        payable(owner).transfer(loan.Ethereum);
+        payable(loan.borrower).transfer(loan.Ethereum);
         emit LoanCanceled(loanId);
     }
 }
