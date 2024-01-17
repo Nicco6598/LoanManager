@@ -55,3 +55,41 @@ Ecco alcuni esempi di chiamate di funzione possibili con il contratto LoanManage
   ```solidity
   // Imposta l'importo del prestito a 1 ETH, il tasso di interesse al 5% e la durata di 30 giorni
   borrow(1, 5, 30);
+
+
+- Prendere in prestito fondi:
+   ```solidity
+  // Prende in prestito fondi da un prestito esistente specificando l'ID del prestito
+  takeLoan(0);
+- Ripagare un prestito:
+  ```solidity
+  Copy code
+  // Ripaga un prestito specifico specificando l'ID del prestito
+  repayLoan(0);
+- Annullare un prestito (solo per l'owner):
+  ```solidity
+  Copy code
+  // Annulla un prestito specifico specificando l'ID del prestito
+  cancelLoan(0);
+- Ottenere informazioni su un prestito:
+  ```solidity
+  Copy code
+  // Ottieni informazioni su un prestito specifico specificando l'ID del prestito
+  getLoanInfo(0);
+  
+# Licenza
+Questo contratto è distribuito con una licenza MIT. Consulta il file LICENSE per ulteriori dettagli.
+
+# Autori
+Marco Niccolini - (https://github.com/Nicco6598)
+
+## Clonare 
+Fai il fork del repository.
+Crea un branch con una descrizione chiara della tua modifica: git checkout -b feature/nome-della-funzione.
+Fai commit delle tue modifiche: git commit -m 'Aggiunta la nuova funzione'.
+Pusha il tuo branch: git push origin feature/nome-della-funzione.
+Apri una pull request con una descrizione dettagliata delle tue modifiche.
+Domande e Supporto
+In caso di domande o bisogno di supporto, puoi aprire una issue su GitHub o contattare l'autore principale del progetto.
+
+Grazie per aver utilizzato LoanManager!
