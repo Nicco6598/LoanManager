@@ -43,7 +43,7 @@ Assicurati di soddisfare i seguenti requisiti prima di utilizzare il contratto L
 Puoi distribuire il contratto LoanManager su una blockchain Ethereum seguendo questi passaggi:
 
 1. Configura il tuo ambiente di sviluppo con il client Ethereum e il portafoglio.
-2. Compila il contratto Solidity.
+2. Compila il contratto Solidity o importalo dall'address 0x1f9E0C5D2304B2141179554602996FcB9c493AA3
 3. Effettua il deploy del contratto sulla blockchain utilizzando il tuo portafoglio.
 4. Interagisci con il contratto tramite chiamate di funzione utilizzando il tuo portafoglio o un'applicazione front-end.
 
