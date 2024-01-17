@@ -63,17 +63,14 @@ Ecco alcuni esempi di chiamate di funzione possibili con il contratto LoanManage
   takeLoan(0);
 - Ripagare un prestito:
   ```solidity
-  Copy code
   // Ripaga un prestito specifico specificando l'ID del prestito
   repayLoan(0);
 - Annullare un prestito (solo per l'owner):
   ```solidity
-  Copy code
   // Annulla un prestito specifico specificando l'ID del prestito
   cancelLoan(0);
 - Ottenere informazioni su un prestito:
   ```solidity
-  Copy code
   // Ottieni informazioni su un prestito specifico specificando l'ID del prestito
   mapping(uint256 => Loan) public loans;
   
