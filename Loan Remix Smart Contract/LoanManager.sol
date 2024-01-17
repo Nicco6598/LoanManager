@@ -86,7 +86,7 @@ contract LoanManager {
     loan.isPaid = true;
 
     // Trasferimento dei fondi direttamente all'owner
-    payable(owner).transfer(totalAmount);
+    payable(loan.borrower).transfer(totalAmount);
     emit LoanPaid(loanId, totalAmount);
     }
 
