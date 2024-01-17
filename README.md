@@ -28,7 +28,7 @@ Per utilizzare il contratto LoanManager, puoi seguire i seguenti passaggi:
 2. **Prendere in prestito fondi:** Gli utenti possono prendere in prestito fondi esistenti utilizzando la funzione `takeLoan` specificando l'ID del prestito.
 3. **Ripagare un prestito:** Gli utenti possono ripagare un prestito utilizzando la funzione `repayLoan` specificando l'ID del prestito. L'importo totale del prestito, inclusi gli interessi e le penali, verrà calcolato automaticamente.
 4. **Annullare un prestito:** L'owner del contratto può annullare un prestito utilizzando la funzione `cancelLoan` specificando l'ID del prestito.
-5. **Ottenere informazioni sul prestito:** Gli utenti possono ottenere informazioni dettagliate su un prestito specifico utilizzando la funzione `getLoanInfo` specificando l'ID del prestito.
+5. **Ottenere informazioni sul prestito:** Gli utenti possono ottenere informazioni dettagliate su un prestito specifico utilizzando la funzione `Loans` specificando l'ID del prestito.
 
 ## Requisiti
 
