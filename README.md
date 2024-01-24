@@ -42,7 +42,7 @@ Assicurati di soddisfare i seguenti requisiti prima di utilizzare il contratto L
 - Inizia configurando il tuo ambiente di sviluppo con il client Ethereum e il tuo portafoglio.
 
 ### Passaggio 2: Gestire il contratto Solidity
-- Puoi compilare il contratto Solidity oppure importarlo dall'indirizzo 0xF0006A50462B2dDd953ba7C53731255AA9bfC4EA.
+- Puoi compilare il contratto Solidity oppure importarlo dall'indirizzo 0xd66054F5aaCd434C807fCe253bc489f848CF6dB9.
 
 ### Passaggio 3: Effettuare il deploy del contratto
 - Ora, è il momento di mettere il contratto sulla blockchain. Usa il tuo portafoglio per effettuare il deploy.
