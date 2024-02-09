@@ -21,13 +21,13 @@ contract LoanManager {
     address public owner;
 
     // Eventi per il logging delle azioni
-    event LoanCreated(uint256 loanId, address lender, address borrower, uint256 principalAmount, uint256 interestRate, uint256 startTime, uint256 endTime);
+    event LoanCreated(uint256 loanId, address borrower, address lender, uint256 principalAmount, uint256 interestRate, uint256 startTime, uint256 endTime);
     event LoanPaid(uint256 loanId, uint256 amountPaid);
     event LoanLatePayment(uint256 loanId, uint256 penaltyAmount);
     event LoanCanceled(uint256 loanId);
 
     modifier onlyOwner() {
-        require(msg.sender == owner, "Solo il creatore del contratto puo' annullare un prestito");
+        require(msg.sender == owner, "Solo il creatore del contratto puo annullare un prestito");
         _;
     }
 
@@ -36,27 +36,28 @@ contract LoanManager {
         loanCounter = 0;
     }
 
-    function borrow(uint256 _principalAmountInEther, uint256 _interestRate, uint256 _durationInDays) external payable {
+    function borrow(uint256 _principalAmountInEther, uint256 _interestRate, uint256 _durationInDays) external {
         require(_principalAmountInEther > 0, "L'importo deve essere maggiore di 0");
         require(_interestRate > 0, "Gli interessi devono essere maggiori di 0");
-        require(address(this).balance >= msg.value, "Il contratto non ha abbastanza fondi per questo prestito");
 
         uint256 principalAmountInWei = _principalAmountInEther * 1 ether;
         uint256 endTime = block.timestamp + _durationInDays * 1 days;
         uint256 totalAmount = principalAmountInWei + FinancialLibrary.calculateInterest(principalAmountInWei, _interestRate, block.timestamp, endTime);
-        loans[loanCounter] = Loan(msg.sender, address(0), principalAmountInWei, _interestRate, block.timestamp, endTime, false, totalAmount);
+
+        loans[loanCounter] = Loan(address(0), msg.sender, principalAmountInWei, _interestRate, block.timestamp, endTime, false, totalAmount);
         emit LoanCreated(loanCounter, msg.sender, address(0), principalAmountInWei, _interestRate, block.timestamp, endTime);
         loanCounter++;
     }
 
-    function takeLoan(uint256 loanId) external {
+    function takeLoan(uint256 loanId) external payable {
         Loan storage loan = loans[loanId];
-        require(loan.lender != address(0), "Il prestito non esiste");
+        require(loan.borrower != address(0), "Il prestito non esiste");
         require(!loan.isPaid, "Il prestito e' gia' stato ripagato");
-        require(loan.borrower == address(0), "Il prestito con questo ID e' gia' stato preso");
-        require(msg.sender != loan.lender, "Il prestatore non puo' prendere in carico il proprio prestito");
+        require(loan.lender == address(0), "Il prestito con questo ID e' gia' stato preso");
+        require(msg.sender != loan.borrower, "Il prestatore non puo' prendere in carico il proprio prestito");
 
-        loan.borrower= msg.sender;
+        loan.lender = msg.sender;
+        require(msg.value >= loan.principalAmount, "Fondi insufficienti inviati");
         payable(loan.borrower).transfer(loan.principalAmount);
     }
 
@@ -85,7 +86,7 @@ contract LoanManager {
         require(!loan.isPaid, "Non si puo' cancellare un prestito gia' ripagato");
 
         loan.isPaid = true;
-        payable(loan.lender).transfer(loan.principalAmount);
+        payable(loan.borrower).transfer(loan.principalAmount);
         emit LoanCanceled(loanId);
     }
 }
